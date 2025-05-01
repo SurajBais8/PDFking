@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple PDF Tools</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Simple PDF Tools</h1>
+            <nav>
+                <ul>
+                    <li><a href="#merge-section">Merge</a></li>
+                    <li><a href="#split-section">Split</a></li>
+                    <li><a href="#compress-section">Compress</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Theme">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="merge-section" class="tool-section">
+            <h2>Merge PDFs</h2>
+            <form id="merge-form" enctype="multipart/form-data">
+                <input type="file" id="merge-files" name="files" multiple accept="application/pdf" required />
+                <button type="submit" class="btn">Merge</button>
+            </form>
+            <a id="merge-download" class="download-link" style="display:none;" href="#" download="merged.pdf">Download Merged PDF</a>
+        </section>
+
+        <section id="split-section" class="tool-section">
+            <h2>Split PDF</h2>
+            <form id="split-form" enctype="multipart/form-data">
+                <input type="file" id="split-file" name="file" accept="application/pdf" required />
+                <input type="number" id="split-page-number" name="page_number" min="1" placeholder="Page number to split at" required />
+                <button type="submit" class="btn">Split</button>
+            </form>
+            <a id="split-download" class="download-link" style="display:none;" href="#" download="split.zip">Download Split PDFs</a>
+        </section>
+
+        <section id="compress-section" class="tool-section">
+            <h2>Compress PDF</h2>
+            <form id="compress-form" enctype="multipart/form-data">
+                <input type="file" id="compress-file" name="file" accept="application/pdf" required />
+                <button type="submit" class="btn">Compress</button>
+            </form>
+            <a id="compress-download" class="download-link" style="display:none;" href="#" download="compressed.pdf">Download Compressed PDF</a>
+    </section>
+
+    <section id="pdf-to-word-section" class="tool-section">
+        <h2>PDF to Word</h2>
+        <form id="pdf-to-word-form" enctype="multipart/form-data">
+            <input type="file" id="pdf-to-word-file" name="file" accept="application/pdf" required />
+            <button type="submit" class="btn">Convert</button>
+        </form>
+        <a id="pdf-to-word-download" class="download-link" style="display:none;" href="#" download="converted.docx">Download Word Document</a>
+    </section>
+
+    <section id="word-to-pdf-section" class="tool-section">
+        <h2>Word to PDF</h2>
+        <form id="word-to-pdf-form" enctype="multipart/form-data">
+            <input type="file" id="word-to-pdf-file" name="file" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required />
+            <button type="submit" class="btn">Convert</button>
+        </form>
+        <a id="word-to-pdf-download" class="download-link" style="display:none;" href="#" download="converted.pdf">Download PDF</a>
+    </section>
+
+    <section id="pdf-to-jpg-section" class="tool-section">
+        <h2>PDF to JPG</h2>
+        <form id="pdf-to-jpg-form" enctype="multipart/form-data">
+            <input type="file" id="pdf-to-jpg-file" name="file" accept="application/pdf" required />
+            <button type="submit" class="btn">Convert</button>
+        </form>
+        <a id="pdf-to-jpg-download" class="download-link" style="display:none;" href="#" download="converted_images.zip">Download JPG Images</a>
+    </section>
+
+    <section id="jpg-to-pdf-section" class="tool-section">
+        <h2>JPG to PDF</h2>
+        <form id="jpg-to-pdf-form" enctype="multipart/form-data">
+            <input type="file" id="jpg-to-pdf-files" name="files" multiple accept="image/jpeg,image/png" required />
+            <button type="submit" class="btn">Convert</button>
+        </form>
+        <a id="jpg-to-pdf-download" class="download-link" style="display:none;" href="#" download="converted.pdf">Download PDF</a>
+    </section>
+
+    <section id="sign-pdf-section" class="tool-section">
+        <h2>Sign PDF</h2>
+        <form id="sign-pdf-form" enctype="multipart/form-data">
+            <input type="file" id="sign-pdf-file" name="file" accept="application/pdf" required />
+            <button type="submit" class="btn">Sign</button>
+        </form>
+        <a id="sign-pdf-download" class="download-link" style="display:none;" href="#" download="signed.pdf">Download Signed PDF</a>
+    </section>
+
+    <section id="watermark-section" class="tool-section">
+        <h2>Watermark PDF</h2>
+        <form id="watermark-form" enctype="multipart/form-data">
+            <input type="file" id="watermark-file" name="file" accept="application/pdf" required />
+            <input type="file" id="watermark-watermark" name="watermark" accept="application/pdf" required />
+            <button type="submit" class="btn">Add Watermark</button>
+        </form>
+        <a id="watermark-download" class="download-link" style="display:none;" href="#" download="watermarked.pdf">Download Watermarked PDF</a>
+    </section>
+
+    <section id="rotate-section" class="tool-section">
+        <h2>Rotate PDF</h2>
+        <form id="rotate-form" enctype="multipart/form-data">
+            <input type="file" id="rotate-file" name="file" accept="application/pdf" required />
+            <select id="rotate-direction" name="direction" required>
+                <option value="clockwise">Clockwise</option>
+                <option value="counterclockwise">Counterclockwise</option>
+            </select>
+            <button type="submit" class="btn">Rotate</button>
+        </form>
+        <a id="rotate-download" class="download-link" style="display:none;" href="#" download="rotated.pdf">Download Rotated PDF</a>
+    </section>
+
+    <section id="unlock-section" class="tool-section">
+        <h2>Unlock PDF</h2>
+        <form id="unlock-form" enctype="multipart/form-data">
+            <input type="file" id="unlock-file" name="file" accept="application/pdf" required />
+            <input type="password" id="unlock-password" name="password" placeholder="Password" />
+            <button type="submit" class="btn">Unlock</button>
+        </form>
+        <a id="unlock-download" class="download-link" style="display:none;" href="#" download="unlocked.pdf">Download Unlocked PDF</a>
+    </section>
+
+    <section id="protect-section" class="tool-section">
+        <h2>Protect PDF</h2>
+        <form id="protect-form" enctype="multipart/form-data">
+            <input type="file" id="protect-file" name="file" accept="application/pdf" required />
+            <input type="password" id="protect-password" name="password" placeholder="Password" required />
+            <button type="submit" class="btn">Protect</button>
+        </form>
+        <a id="protect-download" class="download-link" style="display:none;" href="#" download="protected.pdf">Download Protected PDF</a>
+    </section>
+
+    <section id="organize-section" class="tool-section">
+        <h2>Organize PDF</h2>
+        <form id="organize-form" enctype="multipart/form-data">
+            <input type="file" id="organize-file" name="file" accept="application/pdf" required />
+            <input type="text" id="organize-order" name="order" placeholder="Page order (e.g. 0,2,1)" required />
+            <button type="submit" class="btn">Organize</button>
+        </form>
+        <a id="organize-download" class="download-link" style="display:none;" href="#" download="organized.pdf">Download Organized PDF</a>
+    </section>
+
+    <section id="add-page-numbers-section" class="tool-section">
+        <h2>Add Page Numbers</h2>
+        <form id="add-page-numbers-form" enctype="multipart/form-data">
+            <input type="file" id="add-page-numbers-file" name="file" accept="application/pdf" required />
+            <button type="submit" class="btn">Add Numbers</button>
+        </form>
+        <a id="add-page-numbers-download" class="download-link" style="display:none;" href="#" download="numbered.pdf">Download Numbered PDF</a>
+    </section>
+
+    <section id="crop-section" class="tool-section">
+        <h2>Crop PDF</h2>
+        <form id="crop-form" enctype="multipart/form-data">
+            <input type="file" id="crop-file" name="file" accept="application/pdf" required />
+            <input type="number" id="crop-left" name="left" placeholder="Left" step="0.1" required />
+            <input type="number" id="crop-bottom" name="bottom" placeholder="Bottom" step="0.1" required />
+            <input type="number" id="crop-right" name="right" placeholder="Right" step="0.1" required />
+            <input type="number" id="crop-top" name="top" placeholder="Top" step="0.1" required />
+            <button type="submit" class="btn">Crop</button>
+        </form>
+        <a id="crop-download" class="download-link" style="display:none;" href="#" download="cropped.pdf">Download Cropped PDF</a>
+    </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Simple PDF Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
