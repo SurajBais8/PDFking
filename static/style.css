@@ -1,0 +1,165 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f7f8fa;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+header {
+    background-color: #0052cc;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+body.dark-theme header {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff7f50;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.tool-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    padding: 20px;
+    flex: 1 1 300px;
+    min-width: 280px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .tool-section {
+    background: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.tool-section h2 {
+    margin-bottom: 15px;
+    color: #0052cc;
+}
+
+body.dark-theme .tool-section h2 {
+    color: #90caf9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="file"],
+input[type="number"] {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme input[type="file"],
+body.dark-theme input[type="number"] {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+input[type="number"] {
+    max-width: 150px;
+}
+
+.btn {
+    background-color: #0052cc;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+}
+
+.btn:hover {
+    background-color: #003d99;
+}
+
+.download-link {
+    margin-top: 10px;
+    color: #0052cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+body.dark-theme footer {
+    border-top: 1px solid #444;
+    color: #aaa;
+}
